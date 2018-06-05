@@ -2,10 +2,11 @@
   encode:  (offset,string) => {
      let codCipher=''; //mostrar cifra codificada
      //se puede mejorar el  con for of 
+     offset=offset%26
      for (let i=0; i<string.length; i++){ //esto se lee el  contador  i=va a comensar en 0 i= va a ser mayor o igual que  i= va a avanzar de uno en uno.
       let a=string.charCodeAt(i);//a es el codigo ascii
       if (a>=65 && a<=90){//(condicion)if= si..a es mayor o igual y menor o igual que
-        let x=(a-65+parseInt(offset))%26+65; //x = mayusculas
+        let x=(a-65+parseInt(offset))%26+65; //x = mayusculas reciduo de 26;
         codCipher = codCipher+String.fromCharCode(x);//llamando a una cadena(String) y (fromcharcode) para convertir a unicode en un personaje
       }
       else if (a>=97 && a<=122){ //if= si..a es mayor o igual y menor o igual que
@@ -19,6 +20,7 @@
   },
   decode:  (offset,string) => {
     let decodCipher='';//mostrar cifra decodificada
+    offset=offset%26
     for (let i=0; i<string.length; i++){//for= para ..esto se lee el contador  i=va a comensar en 0 i= va a ser mayor o igual que  i= va a avanzar de uno en uno.
       let a=string.charCodeAt(i); //a es codigo asccii
       if(a>=65 && a<=90){ //if= si..a es mayor o igual y menor o igual que
